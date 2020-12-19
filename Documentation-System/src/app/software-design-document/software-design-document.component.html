@@ -1,0 +1,29 @@
+<div class="card-body">
+    <button class="btn btn-warning btn-block mb-3" tybe="button" (click)="addInput()">Add New Document</button>
+    <form [formGroup]="DesForm" (ngSubmit)="onSubmit()">
+        <div class="form-group" *ngFor="let Num of NumOfinp; let i = index">
+            <div class="form-group">
+                <input type="text" id='filename{{i}}' placeholder="File Name" formControlName='fileName' class="form-control">
+                <span class="text-danger" *ngIf="(DesFormControl.fileName.touched || submitted) && DesFormControl.fileName.errors?.required">
+                    File Name is required
+            </span>
+            </div>
+            <div class="input-group form-group ">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Diagram</span>
+                </div>
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" formControlName='Url' (change)="BrowseImage($event)">
+                    <label class="custom-file-label">Choose file</label>
+                </div>
+            </div>
+            <span class="text-danger" *ngIf="(DesFormControl.Url.touched || submitted) && DesFormControl.Url.errors?.required">
+                File is required
+        </span>
+            <div style="padding-top: 20px;" *ngIf="Url[i]">
+                <img style="width: 150px; height: 150px;" [src]="Url[i]">
+            </div>
+        </div>
+        <button class="btn btn-danger btn-block mb-3" tybe="submit">Save</button>
+    </form>
+</div>

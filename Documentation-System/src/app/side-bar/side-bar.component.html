@@ -1,0 +1,21 @@
+<div class="card" *ngFor="let x of data" [ngSwitch]="x.PhaseType">
+    <div class="card-body">
+        <div *ngSwitchCase="'reqPhase'">
+            <h5 class="card-title">introduction:</h5>
+            <p class="card-text">{{x.reqPhase.introduction}}</p>
+            <h5 class="card-title">Purpose:</h5>
+            <p class="card-text">{{x.reqPhase.purpose}}</p>
+        </div>
+        <div *ngSwitchCase="'charPhase'">
+            <h5 class="card-title">Title:</h5>
+            <p class="card-text">{{x.charPhase.title}}</p>
+            <h5 class="card-title">Objectives:</h5>
+            <p class="card-text">{{x.charPhase.objectives}}</p>
+        </div>
+        <div *ngSwitchCase="'desPhase'">
+            <h5 class="card-title">File Name:</h5>
+            <p class="card-text">{{x.desPhase.fileName}}</p>
+        </div>
+        <button type="button" class="btn btn-primary" (click)='Detail(x)'>Details</button>
+    </div>
+</div>

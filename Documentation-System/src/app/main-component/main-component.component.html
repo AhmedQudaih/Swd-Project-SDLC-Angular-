@@ -1,0 +1,89 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Documentation System</a>
+    <a class="navbar-brand" routerLink='/'> SDLC</a>
+    <a class="navbar-brand" routerLink='/allfile'> All files</a>
+</nav>
+
+<br>
+<section class="container">
+
+    <div class="row ">
+        <div class="col-4 ">
+            <div class="form-group">
+                <button class="form-control btn btn-primary" (click)="GetPhaseList()">Creat
+                </button>
+            </div>
+            <hr />
+
+        </div>
+        <div class="col-8 " *ngIf="PhaseList == 1">
+            <div class="form-group">
+                <select class="form-control" (change)="SetPhaseListValue($event.target)">
+                    <option hidden="0">Choose The Phase</option>
+                    <option value="1">Project Initiation Phase</option>
+                    <option value="2">Requirements Phase</option>
+                    <option value="3">Design Phase</option>
+                </select>
+            </div>
+            <hr/>
+        </div>
+    </div>
+    <div class="row ">
+        <div class="col-4 " style=" text-align: center">
+            <app-side-bar></app-side-bar>
+        </div>
+        <div class="col-8 " style=" text-align: center">
+            <div [ngSwitch]=" GetPhaseListValue()">
+                <div *ngSwitchCase="0"></div>
+                <div *ngSwitchCase="1">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="d-flex justify-content-between">
+                                <div style="align-items: flex-start;"> Project Charter document</div>
+                                <a type="button" class="close" style="justify-content: right;" aria-label="Close" (click)="SetPhaseListValue(0)">
+                                    <span aria-hidden="true">&times;</span></a>
+                            </div>
+                        </div>
+                        <app-project-charter-document></app-project-charter-document>
+                    </div>
+                </div>
+                <div *ngSwitchCase="2">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="d-flex justify-content-between">
+                                <div style="align-items: flex-start;"> Software Requirements Specification (SRS)</div>
+                                <a type="button" class="close" style="justify-content: right;" aria-label="Close" (click)="SetPhaseListValue(0)">
+                                    <span aria-hidden="true">&times;</span></a>
+                            </div>
+                        </div>
+                        <app-requirement-phase></app-requirement-phase>
+                    </div>
+                </div>
+                <div *ngSwitchCase="3">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="d-flex justify-content-between">
+                                <div style="align-items: flex-start;"> Software Design document (SDD)</div>
+                                <a type="button" class="close" style="justify-content: right;" aria-label="Close" (click)="SetPhaseListValue(0)">
+                                    <span aria-hidden="true">&times;</span></a>
+                            </div>
+                        </div>
+                        <app-software-design-document></app-software-design-document>
+                    </div>
+                </div>
+                <div *ngIf='Details()!= "0"'>
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="d-flex justify-content-between">
+                                <div style="align-items: flex-start;"> Details And Edite</div>
+                                <a type="button" class="close" style="justify-content: right;" aria-label="Close" (click)="ExsitDetails()">
+                                    <span aria-hidden="true">&times;</span></a>
+                            </div>
+                        </div>
+                        <app-detail-and-edite></app-detail-and-edite>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

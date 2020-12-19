@@ -1,0 +1,355 @@
+<!----------------------------------reqReport---------------------------------->
+<div class="card-body" *ngIf="Phase == 1">
+    <div class="row ">
+        <div class="col-4 ">
+            <div class="form-group">
+                <label class="col-form-label">introduction:</label>
+            </div>
+        </div>
+        <div class="col-8 ">
+            <div class="form-group">
+                <p>{{Details.reqPhase.introduction}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="row ">
+        <div class="col-4 ">
+            <div class="form-group">
+                <label class="col-form-label">Purpose of software being developed:</label>
+            </div>
+        </div>
+        <div class="col-8 ">
+            <div class="form-group">
+                <p>{{Details.reqPhase.purpose}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="row ">
+        <div class="col-4 ">
+            <div class="form-group">
+                <label class="col-form-label">Intended Audience:</label>
+            </div>
+        </div>
+        <div class="col-8 ">
+            <div class="form-group">
+                <p>{{Details.reqPhase.intended}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="row ">
+        <div class="col-4 ">
+            <div class="form-group">
+                <label class="col-form-label">Overall description of the software:</label>
+            </div>
+        </div>
+        <div class="col-8 ">
+            <div class="form-group">
+                <p>{{Details.reqPhase.overall}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="row ">
+        <div class="col-4 ">
+            <div class="form-group">
+                <label class="col-form-label">System Features and Requirments 	<br>
+                    1) Functional Requirments	<br>
+                    2) Non-Functional Requirments	<br>
+                    3) External Interface Requirments</label>
+            </div>
+        </div>
+        <div class="col-8 ">
+            <div class="form-group">
+                <p>{{Details.reqPhase.sfr}}</p>
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-warning btn-block mb-3" (click)="EditeData(Details)" tybe="submit">Edite</button>
+    <input class="btn btn-danger btn-block mb-3" (click)="Delete(Details)" type="button" value="Delete">
+</div>
+
+<!----------------------------------desReport---------------------------------->
+
+<div class="card-body" *ngIf="Phase == 3">
+    <div style=" text-align: center">
+        <img class="card-img-top" [src]="Details.desPhase.Url" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">{{Details.desPhase.fileName}}</h5>
+        </div>
+        <button class="btn btn-warning btn-block mb-3" (click)="EditeData(Details)" tybe="button">Edite</button>
+        <input class="btn btn-danger btn-block mb-3" (click)="Delete(Details)" type="reset" value="Delete">
+    </div>
+</div>
+
+<!----------------------------------CharReport---------------------------------->
+<div class="card-body" *ngIf="Phase == 2">
+    <div class="row ">
+        <div class="col-4 ">
+            <div class="form-group">
+                <label class="col-form-label">Project Title:</label>
+            </div>
+        </div>
+        <div class="col-8 ">
+            <div class="form-group">
+                <p>{{Details.charPhase.title}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="row ">
+        <div class="col-4 ">
+            <div class="form-group">
+                <label class="col-form-label">Project Start Date:</label>
+            </div>
+        </div>
+        <div class="col-8 ">
+            <div class="form-group">
+                <p>{{Details.charPhase.start_date}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="row ">
+        <div class="col-4 ">
+            <div class="form-group">
+                <label class="col-form-label">Project Finish Date:</label>
+            </div>
+        </div>
+        <div class="col-8 ">
+            <div class="form-group">
+                <p>{{Details.charPhase.finish_date}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="row ">
+        <div class="col-4 ">
+            <div class="form-group">
+                <label class="col-form-label">Project Objectives:</label>
+            </div>
+        </div>
+        <div class="col-8 ">
+            <div class="form-group">
+                <p>{{Details.charPhase.objectives}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="row ">
+        <div class="col-4 ">
+            <div class="form-group">
+                <label class="col-form-label">Project Manager:</label>
+            </div>
+        </div>
+        <div class="col-8 ">
+            <div class="form-group">
+                <p>{{Details.charPhase.manager}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="row ">
+        <div class="col-4 ">
+            <div class="form-group">
+                <label class="col-form-label">Budget Information:</label>
+            </div>
+        </div>
+        <div class="col-8 ">
+            <div class="form-group">
+                <p>{{Details.charPhase.budget_info}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="row ">
+        <div class="col-4 ">
+            <div class="form-group">
+                <label class="col-form-label">Project Scope Statments:</label>
+            </div>
+        </div>
+        <div class="col-8 ">
+            <div class="form-group">
+                <p>{{Details.charPhase.scope_statment}}</p>
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-warning btn-block mb-3" (click)="EditeData(Details)" tybe="button">Edite</button>
+    <input class="btn btn-danger btn-block mb-3" (click)="Delete(Details)" type="reset" value="Delete">
+</div>
+
+
+<!----------------------------------editeChar---------------------------------->
+<div class="card-body" *ngIf="Edite!= '0'">
+    <form *ngIf="Edite.PhaseType == 'charPhase'">
+        <div class="form-group">
+
+            <div class="form-group row">
+
+                <input type="text" [(ngModel)]="Edite.charPhase.title" required name="title" #title="ngModel" class="form-control" required="required">
+                <div *ngIf="title.invalid && (title.dirty || title.touched)" class="alert alert-danger">
+
+                    <div *ngIf="title.errors">
+                        Title is required.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+
+                <input type="date" [(ngModel)]="Edite.charPhase.start_date" required name="start_date" #start_date="ngModel" class="form-control">
+                <div *ngIf="start_date.invalid && (start_date.dirty || start_date.touched)" class="alert alert-danger">
+
+                    <div *ngIf="start_date.errors">
+                        Start Date is required.
+                    </div>
+                </div>
+
+            </div>
+            <div class="form-group row">
+
+                <input type="date" [(ngModel)]="Edite.charPhase.finish_date" required name="finish_date" #finish_date="ngModel" class="form-control">
+                <div *ngIf="finish_date.invalid && (finish_date.dirty || finish_date.touched)" class="alert alert-danger">
+
+                    <div *ngIf="finish_date.errors">
+                        Finish Date is required.
+                    </div>
+                </div>
+
+            </div>
+            <div class="form-group row">
+
+                <input type="text" [(ngModel)]="Edite.charPhase.objectives" required name="objectives" #objectives='ngModel' class="form-control">
+                <div *ngIf="objectives.invalid && (objectives.dirty || objectives.touched)" class="alert alert-danger">
+
+                    <div *ngIf="objectives.errors">
+                        Objectives is required.
+                    </div>
+                </div>
+
+            </div>
+            <div class="form-group row">
+
+                <input type="text" [(ngModel)]="Edite.charPhase.manager" required name="manager" #manager='ngModel' class="form-control">
+                <div *ngIf="manager.invalid && (manager.dirty || manager.touched)" class="alert alert-danger">
+
+                    <div *ngIf="manager.errors">
+                        Manager Name is required.
+                    </div>
+                </div>
+
+            </div>
+            <div class="form-group row">
+
+                <input type="text" [(ngModel)]="Edite.charPhase.budget_info" required name="budget" #budget='ngModel' class="form-control">
+                <div *ngIf="budget.invalid && (budget.dirty || budget.touched)" class="alert alert-danger">
+
+                    <div *ngIf="budget.errors">
+                        Budget is required.
+                    </div>
+                </div>
+
+            </div>
+            <div class="form-group row">
+
+                <input type="text" [(ngModel)]="Edite.charPhase.scope_statment" required name="scope_statment" #scope_statment='ngModel' class="form-control">
+                <div *ngIf="scope_statment.invalid && (scope_statment.dirty || scope_statment.touched)" class="alert alert-danger">
+
+                    <div *ngIf="scope_statment.errors">
+                        Scope is required.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+
+    <!----------------------------------editereq---------------------------------->
+    <form *ngIf="Edite.PhaseType == 'reqPhase'">
+        <div class="form-group">
+
+            <div class="form-group row">
+
+                <input type="text" [(ngModel)]="Edite.reqPhase.introduction" required #introduction='ngModel' class="form-control" name="introduction">
+                <div *ngIf="introduction.invalid && (introduction.dirty || introduction.touched)" class="alert alert-danger">
+
+                    <div *ngIf="introduction.errors">
+                        Introduction is required.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+
+                <input type="text" [(ngModel)]="Edite.reqPhase.purpose" required #purpose='ngModel' class="form-control" name="purpose">
+                <div *ngIf="purpose.invalid && (purpose.dirty || purpose.touched)" class="alert alert-danger">
+
+                    <div *ngIf="purpose.errors">
+                        Purpose is required.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+
+                <input type="text" [(ngModel)]="Edite.reqPhase.intended" required #intended='ngModel' class="form-control" name="intended">
+                <div *ngIf="intended.invalid && (intended.dirty || intended.touched)" class="alert alert-danger">
+
+                    <div *ngIf="intended.errors">
+                        Intended is required.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+
+                <input type="text" [(ngModel)]="Edite.reqPhase.overall" class="form-control" required #overall='ngModel' name="overall">
+                <div *ngIf="overall.invalid && (overall.dirty || overall.touched)" class="alert alert-danger">
+
+                    <div *ngIf="overall.errors">
+                        Overall is required.
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <textarea class="form-control" [(ngModel)]="Edite.reqPhase.sfr" name="sfr" #sfr='ngModel' requiredrows="4"></textarea>
+                <div *ngIf="sfr.invalid && (sfr.dirty || sfr.touched)" class="alert alert-danger">
+
+                    <div *ngIf="sfr.errors">
+                        Data is required.
+                    </div>
+                </div>
+            </div>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">UseCase</span>
+                </div>
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" (change)="BrowseImage($event)">
+                    <label class="custom-file-label">Choose file</label>
+                </div>
+            </div>
+            <div style="padding-top: 20px;" *ngIf="Edite.reqPhase.Url">
+                <img style="width: 150px; height: 150px;" [src]="Edite.reqPhase.Url">
+            </div>
+        </div>
+    </form>
+
+    <!----------------------------------desedit---------------------------------->
+
+    <form *ngIf="Edite.PhaseType == 'desPhase'">
+        <div class=" form-group ">
+            <div class="form-group ">
+                <input type="text " name="fileName " [(ngModel)]="Edite.desPhase.fileName " required #fileName='ngModel' class="form-control ">
+                <div *ngIf="fileName.invalid && (fileName.dirty || fileName.touched) " class="alert alert-danger ">
+                    <div *ngIf="fileName.errors ">
+                        File Name is required.
+                    </div>
+                </div>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">UseCase</span>
+                    </div>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" (change)="BrowseImage($event)">
+                        <label class="custom-file-label">Choose file</label>
+                    </div>
+                </div>
+                <div style="padding-top: 20px;" *ngIf="Edite.desPhase.Url">
+                    <img style="width: 150px; height: 150px;" [src]="Edite.desPhase.Url">
+                </div>
+            </div>
+            <button class="btn btn-warning btn-block mb-3" (click)="checkvalidation()" tybe="submit">Done</button>
+        </div>
+    </form>
+</div>

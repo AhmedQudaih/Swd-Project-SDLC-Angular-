@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Documentation System</a>
+    <a class="navbar-brand" routerLink='/'> SDLC</a>
+    <a class="navbar-brand" routerLink='/allfile'> All files</a>
+</nav>
+
+<br>
+<section class="container">
+
+    <div class="row ">
+        <div class="col-4 ">
+            <div class="form-group">
+                <label class="form-control btn btn-warning">All images (Diagrams & UI)</label>
+            </div>
+            <hr />
+        </div>
+    </div>
+    <div class="row ">
+        <div class="col-4 " style=" text-align: center">
+            <div class="card" *ngFor="let x of data;">
+                <div class="card-header">
+                    <label *ngIf="x.PhaseType == 'desPhase'">{{x.desPhase.fileName}}</label>
+                    <label *ngIf="x.PhaseType == 'reqPhase'">{{x.reqPhase.introduction}}</label>
+                </div>
+                <div class="card-body">
+                    <div class="card mb-3">
+                        <img class="card-img-top" *ngIf="x.PhaseType == 'desPhase'" [src]="x.desPhase.Url" alt="Card image cap">
+                        <img class="card-img-top" *ngIf="x.PhaseType == 'reqPhase'" [src]="x.reqPhase.Url" alt="Card image cap">
+
+                    </div>
+                    <button type="button" (click)='Detail(x)' class="btn btn-primary">Details</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-8 " style=" text-align: center" *ngIf="details !='0' ">
+            <div class="card">
+                <div class="card-header">
+                    <div class="d-flex justify-content-between">
+                        <div style="align-items: flex-start;"> Diagrams</div>
+                        <a type="button" class="close" style="justify-content: right;" aria-label="Close" (click)="details='0'">
+                            <span aria-hidden="true">&times;</span></a>
+                    </div>
+                </div>
+                <app-detail-and-edite></app-detail-and-edite>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,67 @@
+<div class="card-body">
+    <form [formGroup]="ReqForm" (ngSubmit)="onSubmit(ReqForm.value)">
+        <div class="form-group">
+
+            <div class="form-group row">
+
+                <input type="text" placeholder="Introduction" class="form-control" formControlName="introduction">
+                <span class="text-danger" *ngIf="(ReqFormControl.introduction.touched || submitted) && ReqFormControl.introduction.errors?.required">
+                    Introduction is required
+            </span>
+
+            </div>
+            <div class="form-group row">
+
+                <input type="text" placeholder="Purpose of software being developed" required class="form-control" formControlName="purpose">
+                <span class="text-danger" *ngIf="(ReqFormControl.purpose.touched || submitted) && ReqFormControl.purpose.errors?.required">
+                    Purpose is required
+                </span>
+
+            </div>
+            <div class="form-group row">
+
+                <input type="text" placeholder="Intended Audience" class="form-control" required formControlName="intended">
+                <span class="text-danger" *ngIf="(ReqFormControl.intended.touched || submitted) && ReqFormControl.intended.errors?.required">
+                    Intended Audience is required
+                </span>
+
+            </div>
+            <div class="form-group row">
+
+                <input type="text" placeholder="Overall description of the software" required class="form-control" formControlName="overall">
+                <span class="text-danger" *ngIf="(ReqFormControl.overall.touched || submitted) && ReqFormControl.overall.errors?.required">
+                    Overall description of the software is required
+                </span>
+
+            </div>
+
+            <div class="form-group row">
+                <textarea class="form-control" formControlName="sfr" required placeholder="System Features and Requirments
+                1) Functional Requirments
+                2) Non-Functional Requirments
+                3) External Interface Requirments" id="exampleFormControlTextarea1" rows="4"></textarea>
+                <span class="text-danger" *ngIf="(ReqFormControl.sfr.touched || submitted) && ReqFormControl.sfr.errors?.required">
+                    Data is required
+                </span>
+
+            </div>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">UseCase</span>
+                </div>
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" formControlName="pic" (change)="BrowseImage($event)">
+                    <label class="custom-file-label">Choose file</label>
+                </div>
+            </div>
+            <span class="text-danger" *ngIf="(ReqFormControl.pic.touched || submitted) && ReqFormControl.pic.errors?.required">
+                UseCase is required
+            </span>
+            <div style="padding-top: 20px;" *ngIf="url">
+                <img style="width: 150px; height: 150px;" [src]="url">
+            </div>
+        </div>
+        <button class="btn btn-warning btn-block mb-3" tybe="submit">done</button>
+        <input class="btn btn-danger btn-block mb-3" type="reset" value="Reset">
+    </form>
+</div>
