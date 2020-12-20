@@ -51,12 +51,12 @@ constructor(private formBuilder: FormBuilder , private dataService: DataService)
   addInput(){
     this.NumOfinp.push(" ");
   }
-  BrowseImage(event: any){
+  BrowseImage(event: any , id:number){
     if(event.target.files){
       const reader = new FileReader();
       reader.readAsDataURL(event.target.files[0]);
       reader.onload=(event:any)=>{
-        this.Url.push(event.target.result);
+        this.Url[id] = event.target.result;
       }
     }
   }
