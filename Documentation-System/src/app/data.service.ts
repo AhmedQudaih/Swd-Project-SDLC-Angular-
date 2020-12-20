@@ -31,8 +31,9 @@ export class DataService {
   }
  
   Delete(Data:any){
-    this.data.splice(this.data.findIndex( i => i.id = Data.id ), 1);
-    console.log(this.data);
+  this.data.splice( this.data.findIndex((temp: DocData) => {
+    return temp.id == Data.id;
+  }), 1);
   }
 
   
