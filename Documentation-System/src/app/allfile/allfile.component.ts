@@ -7,31 +7,33 @@ import { DataService } from '../data.service';
   styleUrls: ['./allfile.component.css']
 })
 export class AllfileComponent implements OnInit {
-  data:any[]=[];
+  data:any;
   details:any ="0";
   constructor(private dataService:DataService) { 
     this.datahandler();
   }
 
   datahandler(){
-
-     this.dataService.Getdata().forEach(element => {
-    if(element.reqPhase){
-        this.data.push(element);
-      } 
-      if (element.desPhase) {
-        this.data.push(element);
-      }
-     
-    }); 
-    console.log(this.data);
+      this.data = this.dataService.Getdata();
   }
 
   ngOnInit(): void {
   }
 
+  Colsedetails(){
+    this.dataService.CloseDetails();
+  }
+
   Detail(x:any){
     this.dataService.Details = x;
     this.details = "1";
+  }
+
+  closedetails(){
+    this.details = this.dataService.Details;
+    return this.dataService.Details;
+  }
+  links(){
+    return this.dataService.Linkdisable();
   }
 }

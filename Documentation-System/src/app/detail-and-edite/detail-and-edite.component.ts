@@ -31,6 +31,7 @@ export class DetailAndEditeComponent implements OnInit {
   }
 
   Delete(Data:any){
+    console.log(Data);
     this.dataService.Delete(Data);
     this.FormSubmet();
   }
@@ -67,6 +68,12 @@ export class DetailAndEditeComponent implements OnInit {
           count = 1;
         }
         break;
+        case 'desPhase':
+          if(
+          this.Edite.desPhase.fileName ==''){
+            count = 1;
+          }
+          break;
     }
    if (count != 0) {
       alert('Some fields are empty!!');
@@ -77,11 +84,12 @@ export class DetailAndEditeComponent implements OnInit {
 }
 
   FormSubmet(){
-   
+ 
     this.Edite = "0"
     this.dataService.Edite = 0;
     this.Details = "0"
     this.dataService.Details = "0";
+     
   }
 
   BrowseImage(event: any){
@@ -96,6 +104,12 @@ export class DetailAndEditeComponent implements OnInit {
     }
   }
   
+
+  CheckComponant(){
+    if(document.URL =='http://localhost:4200/allfile'){
+      return 0;
+    }else return 1;
+  }
 
 }
 

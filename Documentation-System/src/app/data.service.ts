@@ -31,7 +31,15 @@ export class DataService {
   }
  
   Delete(Data:any){
-    this.data.splice( this.data.findIndex( i => i.id = Data.id ), 1);
+    this.data.splice(this.data.findIndex( i => i.id = Data.id ), 1);
+    console.log(this.data);
   }
+
+  
+  Linkdisable(){ 
+    if (this.Edite != 0) {
+      return 1
+    }else return 0 
+ }
 
 }

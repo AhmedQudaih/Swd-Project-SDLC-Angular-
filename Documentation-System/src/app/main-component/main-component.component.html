@@ -1,7 +1,9 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Documentation System</a>
-    <a class="navbar-brand" routerLink='/'> SDLC</a>
-    <a class="navbar-brand" routerLink='/allfile'> All files</a>
+    <div *ngIf='links()==0'>
+        <a class="navbar-brand disable" routerLink='/'> SDLC</a>
+        <a class="navbar-brand disable" routerLink='/allfile'> All files</a>
+    </div>
 </nav>
 
 <br>

@@ -1,5 +1,5 @@
 <!----------------------------------reqReport---------------------------------->
-<div class="card-body" *ngIf="Phase == 1">
+<div class="card-body" *ngIf="Phase == 1 && CheckComponant()!=0">
     <div class="row ">
         <div class="col-4 ">
             <div class="form-group">
@@ -67,6 +67,17 @@
     <input class="btn btn-danger btn-block mb-3" (click)="Delete(Details)" type="button" value="Delete">
 </div>
 
+
+<div class="card-body" *ngIf="Phase == 1 && CheckComponant()==0">
+    <div style=" text-align: center">
+        <img class="card-img-top" [src]="Details.reqPhase.Url" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">{{Details.reqPhase.introduction}}</h5>
+        </div>
+        <button class="btn btn-warning btn-block mb-3" (click)="EditeData(Details)" tybe="button">Edite</button>
+        <input class="btn btn-danger btn-block mb-3" (click)="Delete(Details)" type="reset" value="Delete">
+    </div>
+</div>
 <!----------------------------------desReport---------------------------------->
 
 <div class="card-body" *ngIf="Phase == 3">
@@ -349,7 +360,7 @@
                     <img style="width: 150px; height: 150px;" [src]="Edite.desPhase.Url">
                 </div>
             </div>
-            <button class="btn btn-warning btn-block mb-3" (click)="checkvalidation()" tybe="submit">Done</button>
         </div>
     </form>
+    <button class="btn btn-warning btn-block mb-3" (click)="checkvalidation()" tybe="submit">Done</button>
 </div>

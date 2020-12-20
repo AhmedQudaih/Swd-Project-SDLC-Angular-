@@ -38,6 +38,13 @@ export class MainComponentComponent implements OnInit {
   ExsitDetails(){ 
     
      this.dataService.CloseDetails();
-    
+     
   }
+  
+  links(){
+    return this.dataService.Linkdisable();
+  }
+
+
+ 
 }
