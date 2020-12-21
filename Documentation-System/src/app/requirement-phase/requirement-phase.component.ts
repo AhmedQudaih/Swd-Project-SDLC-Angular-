@@ -13,9 +13,9 @@ export class RequirementPhaseComponent implements OnInit {
   displayform = false;
   submitted = false;
   url='';
-  ReqDetails:any;
-  ReqEdite:any;
-  constructor(private formBuilder: FormBuilder , private dataService: DataService) { this.ReqForm = this.formBuilder.group({
+
+  constructor(private formBuilder: FormBuilder , private dataService: DataService) {
+     this.ReqForm = this.formBuilder.group({
     introduction: ['',Validators.required],
     purpose:  ['',Validators.required],
     intended:  ['',Validators.required],
@@ -31,18 +31,10 @@ export class RequirementPhaseComponent implements OnInit {
     return this.ReqForm.controls;
   }
 
-  EditeReqPhaseData(Details:any){
-    this.ReqEdite = Details;
-  }
-
-  ReqDetail(Dataa:any){
-    this.ReqDetails = Dataa;
-  }
 
   onSubmit(FormData:any) {
     this.submitted = true;
     if (this.ReqForm.valid) {
-      
     let data: DocData = {PhaseType:'reqPhase' ,reqPhase:{ introduction:'',
     purpose:'',
     intended:'',

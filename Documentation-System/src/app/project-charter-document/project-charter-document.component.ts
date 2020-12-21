@@ -12,8 +12,7 @@ export class ProjectCharterDocumentComponent implements OnInit {
   CharForm;
   displayform = false;
   submitted = false;
-  CharDetails:any;
-  CharEdite:any;
+
 
   constructor(private formBuilder: FormBuilder , private dataService: DataService) {
     this.CharForm = this.formBuilder.group({
@@ -62,13 +61,6 @@ export class ProjectCharterDocumentComponent implements OnInit {
     }
 
   }
-  }
-
-  EditeCharPhaseData(Details:any){
-    this.CharEdite = Details;
-  }
-  Detail(Dataa:any){
-    this.CharDetails = Dataa;
   }
 
 }
