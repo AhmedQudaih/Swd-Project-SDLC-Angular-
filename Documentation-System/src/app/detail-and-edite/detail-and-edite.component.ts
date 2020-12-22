@@ -31,7 +31,6 @@ export class DetailAndEditeComponent implements OnInit {
   }
 
   Delete(Data:any){
-    console.log(Data);
     this.dataService.Delete(Data);
     this.FormSubmet();
   }
